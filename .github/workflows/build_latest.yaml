@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         registry: [quay.io]
-        image_flavour: [base, msmtp, ntfy]
+        image_flavour: [base]
         arch: [amd64, arm64v8]
         include:
           - registry: quay.io
