@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  image_name: ${{ secrets.IMAGE_NAMESPACE }}/borgmatic
+  IMAGE_NAME: ${{ secrets.IMAGE_NAMESPACE }}/borgmatic
 
 jobs:
   docker:
@@ -58,4 +58,4 @@ jobs:
           file: ./${{ matrix.image_flavour }}/Dockerfile
           platforms: linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7
           push: true
-          tags: ${{ image_name }}:${{ matrix.tag_name }}
+          tags: ${{ env.IMAGE_NAME }}:${{ matrix.tag_name }}
