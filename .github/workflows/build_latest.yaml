@@ -16,7 +16,6 @@ jobs:
       matrix:
         registry: [quay.io]
         image_flavour: [base]
-        arch: [amd64, arm64v8]
         include:
           - registry: quay.io
             username: QUAYIO_USERNAME
