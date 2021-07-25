@@ -24,10 +24,6 @@ jobs:
 
           - image_flavour: base
             tag_name: latest
-          - image_flavour: msmtp
-            tag_name: latest-msmtp
-          - image_flavour: ntfy
-            tag_name: latest-ntfy
 
     steps:
       - name: Checkout
