@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  image_name: ${{ IMAGE_NAMESPACE }}/borgmatic
+  image_name: ${{ secrets.IMAGE_NAMESPACE }}/borgmatic
 
 jobs:
   docker:
@@ -19,8 +19,8 @@ jobs:
         arch: [amd64, arm64v8]
         include:
           - registry: quay.io
-            username: ${{ QUAYIO_USERNAME }}
-            password: ${{ QUAYIO_PASSWORD }}
+            username: ${{ secrets.QUAYIO_USERNAME }}
+            password: ${{ secrets.QUAYIO_PASSWORD }}
 
           - image_flavour: base
             tag_name: latest
