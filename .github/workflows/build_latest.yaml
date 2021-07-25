@@ -19,8 +19,8 @@ jobs:
         arch: [amd64, arm64v8]
         include:
           - registry: quay.io
-            username: ${{ secrets.QUAYIO_USERNAME }}
-            password: ${{ secrets.QUAYIO_PASSWORD }}
+            username: QUAYIO_USERNAME
+            password: QUAYIO_PASSWORD
 
           - image_flavour: base
             tag_name: latest
@@ -47,8 +47,8 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ${{ matrix.registry }}
-          username: ${{ matrix.username }}
-          password: ${{ matrix.password }}
+          username: ${{ secrets[matrix.username] }}
+          password: ${{ secrets[matrix.password] }}
 
       - name: Build_base
         uses: docker/build-push-action@v2
