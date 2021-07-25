@@ -1,5 +1,4 @@
-ARG ARCH=amd64
-FROM ${ARCH}/alpine:3.13 as builder
+FROM alpine:3.13 as builder
 MAINTAINER b3vis
 ARG BORG_VERSION=1.1.16
 ARG BORGMATIC_VERSION=1.5.14
@@ -21,7 +20,7 @@ RUN apk upgrade --no-cache \
     && pip3 install --upgrade borgmatic==${BORGMATIC_VERSION} \
     && pip3 install --upgrade llfuse==${LLFUSE_VERSION}
 
-FROM ${ARCH}/alpine:3.13
+FROM alpine:3.13
 MAINTAINER b3vis
 COPY entry.sh /entry.sh
 RUN apk upgrade --no-cache \
